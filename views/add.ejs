@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Recipe</title>
+</head>
+<body>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <style>
+        .label, .input {
+            border-radius: 5px;
+            /* border: 1px solid black; */
+            margin: 5px 0px 5px 0px;
+            padding: 5px;
+            display: grid;
+        }
+        .input {
+            width: 50vw;
+        }
+        h1 {
+            display: grid;
+            justify-content: center;
+        }
+        p {
+            font-size: small;
+        }
+        .cancel {
+            text-decoration: none;
+            color: white;
+            padding: 0px 5px 0px 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <h1>Add a Recipe</h1>
+    <form class="form" action="/add" method="POST">
+        <div class="inputFields">
+            <label class="label" for="name">Title* :</label>
+            <input class="input" type="text" name="name" />
+            <label class="label" for="img">Ingredients* :</label>
+            <input class="input" type="text" name="ingredients" />
+            <label class="label" for="img">Link to Image:</label>
+            <input class="input" type="text" name="img" />
+            <label class="label" for="img">Link to Directions* :</label>
+            <input class="input" type="text" name="directions" />
+            <label class="label" for="allergens">Allergens* :</label>
+            <input class="input" type="text" name="allergens" />
+            <p>* Required Field</p>
+        </div>
+        <input class="submit" type="submit" />
+        <button><a class= "cancel" href="/">Cancel</a></button>
+    </form>
+</body>
+</html>

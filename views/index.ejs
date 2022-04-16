@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's for Dinner?</title>
+    <button><a href="/recipes/add">Add a Recipe</a></button>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <h1>What's for Dinner?</h1>
+    <div class="recipeThumbnails">
+        <%recipes.forEach(indexRecipe => {%>
+            <div>
+                <a href="<%=indexRecipe.directionsURL%>"><h3><%=indexRecipe.title%></h3></a>
+            </div>
+            <div>
+                <a href="<%=indexRecipe.directionsURL%>"><img src="<%=indexRecipe.imageURL%>"></a>
+            </div>
+        <%})%>
+    </div>
+</body>
+</html>
