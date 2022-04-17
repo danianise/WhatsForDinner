@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=recipes.title%></title>
+    
+</head>
+<body>
+    <style>
+        img {
+    height: 20vh;
+    width: 20vw;
+    border-radius: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+    </style>
+    <h1><%=recipes.title%></h1>
+    <a href="<%=recipes.directionsURL%>">
+        <img src="<%=recipes.imageURL%>">
+    </a>
+    <div class="links">
+        <a href="<%=recipes.directionsURL%>">Directions</a>
+        <a href="/recipes/<%=recipes.id%>/edit">Edit</a>
+        <form action="/recipes/<%=recipes.id%>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+</body>
+</html>

@@ -35,18 +35,18 @@
     </style>
 
     <h1>Add a Recipe</h1>
-    <form class="form" action="/add" method="POST">
+    <form class="form" action="/recipes/add" method="POST">
         <div class="inputFields">
-            <label class="label" for="name">Title* :</label>
-            <input class="input" type="text" name="name" />
-            <label class="label" for="img">Ingredients* :</label>
-            <input class="input" type="text" name="ingredients" />
-            <label class="label" for="img">Link to Image:</label>
-            <input class="input" type="text" name="img" />
-            <label class="label" for="img">Link to Directions* :</label>
-            <input class="input" type="text" name="directions" />
+            <label class="label" for="title">Title* :</label>
+            <input class="input" type="text" name="title" required />
+            <label class="label" for="ingredients">Ingredients* :</label>
+            <input class="input" type="text" name="ingredients" required />
+            <label class="label" for="imgURL">Link to Image:</label>
+            <input class="input" type="text" name="imgURL" />
+            <label class="label" for="directionsURL">Link to Directions* :</label>
+            <input class="input" type="text" name="directionsURL" required />
             <label class="label" for="allergens">Allergens* :</label>
-            <input class="input" type="text" name="allergens" />
+            <input class="input" type="text" name="allergens" required />
             <p>* Required Field</p>
         </div>
         <input class="submit" type="submit" />

@@ -13,10 +13,10 @@
     <div class="recipeThumbnails">
         <%recipes.forEach(indexRecipe => {%>
             <div>
-                <a href="<%=indexRecipe.directionsURL%>"><h3><%=indexRecipe.title%></h3></a>
+                <a href="/recipes/<%=indexRecipe.id%>"><h3><%=indexRecipe.title%></h3></a>
             </div>
             <div>
-                <a href="<%=indexRecipe.directionsURL%>"><img src="<%=indexRecipe.imageURL%>"></a>
+                <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
             </div>
         <%})%>
     </div>

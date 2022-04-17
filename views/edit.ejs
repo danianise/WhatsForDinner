@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%=recipes.title%></title>
+</head>
+<body>
+    <form class="form" action="/recipes/<%=recipes.id%/edit>" method="POST">
+        <div class="inputFields">
+            <label class="label" for="title">Title:</label>
+            <input class="input" type="text" name="title" value="<%=recipes.title%>" />
+            <label class="label" for="ingredients">Ingredients:</label>
+            <input class="input" type="text" name="ingredients" value="<%=recipes.ingredients%>" />
+            <label class="label" for="imgURL">Link to Image:</label>
+            <input class="input" type="text" name="imgURL" value="<%=recipes.imageURL%>" />
+            <label class="label" for="directionsURL">Link to Directions:</label>
+            <input class="input" type="text" name="directionsURL" value="<%=recipes.directionsURL%>" />
+            <label class="label" for="allergens">Allergens:</label>
+            <input class="input" type="text" name="allergens" value="<%=recipes.allergensContained%>" />
+        </div>
+        <input class="submit" type="submit" />
+</body>
+</html>
