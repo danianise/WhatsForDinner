@@ -17,21 +17,42 @@ router.get('/add', (req, res) => {
 
 //POST route for adding a recipe when you submit the form
 router.post('/add', (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     Recipe.create(req.body)
     .then(() => res.redirect('/recipes'));
 })
 
-router.get('/:id/edit', (req, res) => {
-    Recipe.findOne({_id: req.params.id})
-        .then((recipes) => res.render('edit', {recipes: recipes}))
+//route for ingredient search page
+router.get('/ingredientSearchForm', (req, res) => {
+    res.render('ingredientSearchForm')
 })
 
-router.put('/:id/edit', (req, res) => {
+//route for using ingredient search form
+router.post('/ingredientSearchForm', (req, res) => {
+    Recipe.find({ingredients: req.body})
+        .then(searchResults => res.render('ingredientSearchResults', {searchResults: searchResults}) )
+})
+
+router.get('/:id/edit', (req, res) => {
+    Recipe.findOne({_id: req.params.id})
+        .then(recipes => res.render('edit', {recipes: recipes}))
+})
+
+router.put('/:id', (req, res) => {
     const id = req.params.id
-    console.log(req.body)
-    Recipe.findOneAndUpdate({_id: id}, req.body)
-    .then(() => res.redirect('/recipes/id'))
+    // console.log(req.body)
+    Recipe.findOneAndUpdate(
+        {_id: id},
+        {title: req.body.title,
+        ingredients: req.body.ingredients,
+        imageURL: req.body.imageURL,
+        directionsURL: req.body.directionsURL,
+        allergensContained: req.body.allergensContained,
+        seeAlso: req.body.seeAlso
+    },
+        {new: true})
+    .then(() => res.redirect(`/recipes/${req.params.id}`))
+    .catch(console.error)
 })
 
 //route to show each recipe individually

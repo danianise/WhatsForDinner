@@ -7,7 +7,7 @@
     <title>Edit <%=recipes.title%></title>
 </head>
 <body>
-    <form class="form" action="/recipes/<%=recipes.id%/edit>" method="POST">
+    <form class="form" action="/recipes/<%=recipes.id%>/?_method=put" method="POST">
         <div class="inputFields">
             <label class="label" for="title">Title:</label>
             <input class="input" type="text" name="title" value="<%=recipes.title%>" />
@@ -19,6 +19,13 @@
             <input class="input" type="text" name="directionsURL" value="<%=recipes.directionsURL%>" />
             <label class="label" for="allergens">Allergens:</label>
             <input class="input" type="text" name="allergens" value="<%=recipes.allergensContained%>" />
+            <!-- <label class="label" for="seeAlso">Other Helpful Links:</label>
+            <%recipes.seeAlso.forEach(seeAlsoLinks => {%>
+            <input class="input" type="text" name="seeAlsoLinks.title" value="<%=seeAlsoLinks.title%>" />
+            <input class="input" type="text" name="seeAlsoLinks.url" value="<%=seeAlsoLinks.url%>" />
+            <%})%> -->
+        <!-- office hours question: properly formatting a way to add See Also links/titles to this edit -->
+        <!-- I want to be able to edit what exists AND leave the option to add more links -->
         </div>
         <input class="submit" type="submit" />
 </body>
