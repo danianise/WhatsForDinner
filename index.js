@@ -6,6 +6,7 @@ const recipeControllers = require('./controllers/recipes')
 const Recipe = require('./models/recipe-model')
 const mongoose = require('./db/connection')
 const ejs = require('ejs')
+const bodyParser = require('body-parser')
 
 
 app.set('view engine', 'ejs')
@@ -14,6 +15,7 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/recipes', recipeControllers)
 
 const port = process.env.PORT || 4000

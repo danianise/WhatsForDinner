@@ -5,19 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's for Dinner?</title>
-    <button><a href="/recipes/add">Add a Recipe</a></button>
-    <button><a href="/recipes/ingredientSearchForm">Search by Ingredients</a></button>
 </head>
 <body>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <button><a href="/recipes/add">Add a Recipe</a></button>
+    <button><a href="/recipes/ingredientSearchForm">Search by Ingredients</a></button>
     <h1>What's for Dinner?</h1>
-    <div class="recipeThumbnails">
+    <div class="cardsContainer">
         <%recipes.forEach(indexRecipe => {%>
-            <div>
-                <a href="/recipes/<%=indexRecipe.id%>"><h3><%=indexRecipe.title%></h3></a>
-            </div>
-            <div>
-                <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
+            <div class="recipeCards">
+                <div class="recipeTitle">
+                    <a href="/recipes/<%=indexRecipe.id%>"><h3><%=indexRecipe.title%></h3></a>
+                </div>
+                <div class="recipeImage">
+                    <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
+                </div>
             </div>
         <%})%>
     </div>

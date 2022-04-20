@@ -8,10 +8,11 @@
 </head>
 <body>
     <h1>Search by Ingredients</h1>
-    <form>
+    <form role="search" class="form" action="/recipes/ingredientSearchResults" method="POST">
         <div class="inputFields">
             <label class="label" for="ingredients">Ingredients you want to use:</label>
             <input class="input" type="text" name="ingredients" value="" />
+            <input class="submit" type="submit" />
         </div>
     </form>
     <button><a style="text-decoration:none; color:white;" href="/recipes">Home</a></button>

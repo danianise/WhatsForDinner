@@ -3,48 +3,65 @@ const router = express.Router()
 
 const Recipe = require('../models/recipe-model')
 
-//index route, shows all the recipes with images
+//INDEX route, shows all the recipes with images
 router.get('/', (req, res) => {
     Recipe.find({})
         .then(recipes => res.render('index', {recipes: recipes}))
         .catch(console.error)
 })
 
-//add recipe route, shows the form to add a recipe
+//add recipe GET route, shows the FORM TO ADD a recipe
 router.get('/add', (req, res) => {
     res.render('add')
 })
 
-//POST route for adding a recipe when you submit the form
+//POST route for ADDing a recipe when you submit the form
 router.post('/add', (req, res) => {
     // console.log(req.body)
     Recipe.create(req.body)
     .then(() => res.redirect('/recipes'));
 })
 
-//route for ingredient search page
+//route for INGREDIENT SEARCH FORM
 router.get('/ingredientSearchForm', (req, res) => {
     res.render('ingredientSearchForm')
 })
 
-//route for using ingredient search form
-router.post('/ingredientSearchForm', (req, res) => {
-    Recipe.find({ingredients: req.body})
-        .then(searchResults => res.render('ingredientSearchResults', {searchResults: searchResults}) )
+//route for INGREDIENT SEARCH RESULTS page
+router.get('/ingredientSearchResults', (req, res) => {
+    res.render('ingredientSearchResults')
 })
 
+//POST route for submitting INGREDIENT SEARCH form
+router.post('/ingredientSearchResults', (req, res) => {
+    console.log(req.body)
+    let formattedIngredients = req.body.ingredients.split(",")
+    console.log(formattedIngredients)
+    // Recipe.find({ingredients: { $all: [formattedIngredients[0], formattedIngredients[1] ] } })
+    Recipe.find({ingredients: { $all: formattedIngredients } })
+    // Recipe.find( { ingredients: req.body.ingredients } )
+    // Recipe.find( { $and: [ { ingredients: formattedIngredients[0] }, { ingredients: formattedIngredients[1] } ] })
+        .then(searchResults => {
+            console.log(searchResults)
+            res.render('ingredientSearchResults', {searchResults: searchResults}) })
+        .catch(console.error)
+})
+
+//route for EDIT FORM
 router.get('/:id/edit', (req, res) => {
     Recipe.findOne({_id: req.params.id})
         .then(recipes => res.render('edit', {recipes: recipes}))
 })
 
+//PUT route for EDITing a recipe
 router.put('/:id', (req, res) => {
     const id = req.params.id
+    let ingredients = req.body.ingredients
     // console.log(req.body)
     Recipe.findOneAndUpdate(
         {_id: id},
         {title: req.body.title,
-        ingredients: req.body.ingredients,
+        ingredients: ingredients.split(","),
         imageURL: req.body.imageURL,
         directionsURL: req.body.directionsURL,
         allergensContained: req.body.allergensContained,
@@ -55,13 +72,13 @@ router.put('/:id', (req, res) => {
     .catch(console.error)
 })
 
-//route to show each recipe individually
+//route to show EACH recipe individually
 router.get('/:id', (req, res) => {
     Recipe.findOne({_id: req.params.id})
     .then((recipes) => res.render('each', {recipes: recipes}))
 })
 
-//route to delete a recipe
+//route to DELETE a recipe
 router.delete('/:id', (req, res) => {
     Recipe.findOneAndRemove({ _id: req.params.id })
     .then(() => res.redirect('/recipes') );
