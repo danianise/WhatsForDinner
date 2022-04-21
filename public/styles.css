@@ -1,4 +1,52 @@
-img {
+body {
+    background: url('https://i.imgur.com/NGSNp47.jpg') no-repeat center center fixed; 
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Fontdiner Swanky', cursive;
+}
+
+.sidebar {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 15vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(156, 13, 13); /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+.sidebar a {
+    font-family: 'Cherry Cream Soda', cursive;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+  
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+  
+/* Style page content */
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+  
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+.cardsContainer img {
     height: 20vh;
     width: 20vw;
     border-radius: 20px;
@@ -9,14 +57,15 @@ a {
     color: white;
 }
 
-.cardsContainer {
+
+/* .cardsContainer {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
     grid-gap: 16px;
-}
+} */
 
-.recipeCards {
+/* .recipeCards {
     border: 1px solid black;
     padding: 20px;
     border-radius: 5px;
@@ -24,5 +73,10 @@ a {
     flex-direction:column-reverse;
     justify-content: center;
     align-items: center;
-}
+} */
 
+/* body {
+    background-image: url('https://i.imgur.com/Xybd5ED.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */

@@ -34,13 +34,11 @@ router.get('/ingredientSearchResults', (req, res) => {
 
 //POST route for submitting INGREDIENT SEARCH form
 router.post('/ingredientSearchResults', (req, res) => {
-    console.log(req.body)
-    let formattedIngredients = req.body.ingredients.split(",")
+    let input = req.body.ingredients
+    let ingredientsLowerCase = input.toLowerCase()
+    let formattedIngredients = ingredientsLowerCase.split(", ")
     console.log(formattedIngredients)
-    // Recipe.find({ingredients: { $all: [formattedIngredients[0], formattedIngredients[1] ] } })
     Recipe.find({ingredients: { $all: formattedIngredients } })
-    // Recipe.find( { ingredients: req.body.ingredients } )
-    // Recipe.find( { $and: [ { ingredients: formattedIngredients[0] }, { ingredients: formattedIngredients[1] } ] })
         .then(searchResults => {
             console.log(searchResults)
             res.render('ingredientSearchResults', {searchResults: searchResults}) })

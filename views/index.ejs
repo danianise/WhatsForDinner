@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&display=swap" rel="stylesheet">
     <title>What's for Dinner?</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <button><a href="/recipes/add">Add a Recipe</a></button>
-    <button><a href="/recipes/ingredientSearchForm">Search by Ingredients</a></button>
-    <h1>What's for Dinner?</h1>
-    <div class="cardsContainer">
-        <%recipes.forEach(indexRecipe => {%>
-            <div class="recipeCards">
-                <div class="recipeTitle">
-                    <a href="/recipes/<%=indexRecipe.id%>"><h3><%=indexRecipe.title%></h3></a>
+    <div class="sidebar">
+        <a href="/recipes/add">Add a Recipe</a>
+        <a href="/recipes/ingredientSearchForm">Search by Ingredients</a>
+    </div>
+    <div class="main">  
+        <h1>What's for Dinner?</h1>
+        <div class="cardsContainer">
+            <%recipes.forEach(indexRecipe => {%>
+                <div class="recipeCards">
+                    <div class="recipeTitle">
+                        <a href="/recipes/<%=indexRecipe.id%>"><h3><%=indexRecipe.title%></h3></a>
+                    </div>
+                 <div class="recipeImage">
+                        <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
+                    </div>
                 </div>
-                <div class="recipeImage">
-                    <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
-                </div>
-            </div>
-        <%})%>
+            <%})%>
+        </div>
     </div>
 </body>
 </html>
