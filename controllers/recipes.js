@@ -7,6 +7,7 @@ const Recipe = require('../models/recipe-model')
 router.get('/', (req, res) => {
     Recipe.find({})
         .then(recipes => res.render('index', {recipes: recipes}))
+        // .then(console.log(recipes.ingredients))
         .catch(console.error)
 })
 
@@ -24,7 +25,8 @@ router.post('/add', (req, res) => {
 
 //route for INGREDIENT SEARCH FORM
 router.get('/ingredientSearchForm', (req, res) => {
-    res.render('ingredientSearchForm')
+    Recipe.find({})
+        .then(recipes => res.render('ingredientSearchForm', {recipes: recipes}))
 })
 
 //route for INGREDIENT SEARCH RESULTS page
@@ -37,10 +39,10 @@ router.post('/ingredientSearchResults', (req, res) => {
     let input = req.body.ingredients
     let ingredientsLowerCase = input.toLowerCase()
     let formattedIngredients = ingredientsLowerCase.split(", ")
-    console.log(formattedIngredients)
+    // console.log(formattedIngredients)
     Recipe.find({ingredients: { $all: formattedIngredients } })
         .then(searchResults => {
-            console.log(searchResults)
+            // console.log(searchResults)
             res.render('ingredientSearchResults', {searchResults: searchResults}) })
         .catch(console.error)
 })

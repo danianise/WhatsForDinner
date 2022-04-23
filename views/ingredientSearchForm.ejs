@@ -7,14 +7,61 @@
     <title>Search by Ingredients</title>
 </head>
 <body>
+    <style>
+        #result {
+            padding: 3px;
+        }
+        
+        #result ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #result ul li {
+            padding: 5px 0;
+        }
+
+        #result ul li:hover {
+            background: #eee;
+        }
+    </style>
     <h1>Search by Ingredients</h1>
-    <form role="search" class="form" action="/recipes/ingredientSearchResults" method="POST">
-        <div class="inputFields">
+    <form autocomplete="off" role="search" class="form" action="/recipes/ingredientSearchResults" method="POST">
+        <div class="inputField">
             <label class="label" for="ingredients">Ingredients you want to use:</label>
-            <input class="input" type="text" name="ingredients" value="" placeholder="Example: chicken, onion, spinach" />
+            <input class="input" type="text" name="ingredients" placeholder="Example: chicken, onion, spinach" onKeyUp="showResults(this.value)" />
+            <div id="result"></div>
             <input class="submit" type="submit" />
         </div>
     </form>
+    <script>
+        let searchTerms = ['chicken', 'chicken breast', 'chicken stock'];
+        // let searchTerms = recipes.ingredients
+
+        function autocomplete(input) {
+            if (input == '') {
+                return [];
+            }
+            let reg = new RegExp(input)
+            return searchTerms.filter(function(term) {
+                if (term.match(reg)) {
+                return term;
+                }
+            });
+        }
+  
+        function showResults(value) {
+            result = document.getElementById("result");
+            result.innerHTML = '';
+            let list = '';
+            let terms = autocomplete(value);
+            for (i=0; i<terms.length; i++) {
+                list += '<li>' + terms[i] + '</li>';
+            }
+            result.innerHTML = '<ul>' + list + '</ul>';
+        }
+    </script>
     <button><a style="text-decoration:none; color:white;" href="/recipes">Home</a></button>
     
 </body>

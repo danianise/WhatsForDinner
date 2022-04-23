@@ -5,6 +5,16 @@ body {
 
 h1 {
     font-family: 'Fontdiner Swanky', cursive;
+    color: rgb(156, 13, 13);
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px red,
+    0 0 82px red,
+    0 0 92px red,
+    0 0 102px red,
+    0 0 151px red;
 }
 
 .sidebar {
@@ -23,7 +33,7 @@ h1 {
     font-family: 'Cherry Cream Soda', cursive;
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 18px;
     color: #818181;
     display: block;
 }
@@ -36,7 +46,7 @@ h1 {
   
 /* Style page content */
 .main {
-    margin-left: 160px; /* Same as the width of the sidebar */
+    margin-left: 15vw; /* Same as the width of the sidebar */
     padding: 0px 10px;
 }
   
