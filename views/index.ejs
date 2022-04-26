@@ -23,11 +23,11 @@
         <div class="cardsContainer">
             <%recipes.forEach(indexRecipe => {%>
                 <div class="recipeCards">
+                    <div class="recipeImage">
+                        <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
+                    </div>
                     <div class="recipeTitle">
                         <a href="/recipes/<%=indexRecipe.id%>"><h3><%=indexRecipe.title%></h3></a>
-                    </div>
-                 <div class="recipeImage">
-                        <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
                     </div>
                 </div>
             <%})%>

@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
     <title>Add a Recipe</title>
 </head>
 <body>
@@ -20,17 +23,41 @@
             width: 50vw;
         }
         h1 {
-            display: grid;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            font-family: 'Fontdiner Swanky', cursive;
+            color: rgb(156, 13, 13);
+            text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px red,
+            0 0 82px red,
+            0 0 92px red,
+            0 0 102px red,
+            0 0 151px red;
         }
+
         p {
             font-size: small;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
         .cancel {
             text-decoration: none;
             color: white;
             padding: 0px 5px 0px 5px;
             cursor: pointer;
+        }
+        .submit {
+            margin-right: 10px;
+        }
+
+        .buttons {
+            display: block;
+        }
+        .label {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
     </style>
 
@@ -49,9 +76,11 @@
             <input class="input" type="text" name="allergens" required />
             <p>* Required Field</p>
         </div>
+        <div class="buttons">
         <input class="submit" type="submit" />
     </form>
     <button><a class= "cancel" href="/recipes">Cancel</a></button>
+        </div>
     
 </body>
 </html>
