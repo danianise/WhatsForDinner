@@ -4,36 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
     <title><%=recipes.title%></title>
     
 </head>
 <body>
     <style>
-        img {
-    height: 20vh;
-    width: 20vw;
-    border-radius: 20px;
-}
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
 
-a {
-    text-decoration: none;
-    color: white;
-}
+        img {
+            height: 20vh;
+            width: 20vw;
+            border-radius: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        h1 {
+            font-family: 'Fontdiner Swanky', cursive;
+            color: rgb(156, 13, 13);
+            text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px red,
+            0 0 82px red,
+            0 0 92px red,
+            0 0 102px red,
+            0 0 151px red;
+        }
+
+        .links{
+            display: inline-flex;
+        }
+
+        button, form {
+            margin: 5px;
+        }
+
+        li {
+            padding: 0;
+        }
     </style>
-    <h1><%=recipes.title%></h1>
+    <h1>What's For Dinner?</h1>
+    <h2><%=recipes.title%></h2>
     <a href="<%=recipes.directionsURL%>">
         <img src="<%=recipes.imageURL%>">
     </a>
-    <div class="links">
-        See Also: <%recipes.seeAlso.forEach(seeAlsoLinks => {%>
-            <a href="<%=seeAlsoLinks.url%>"><%=seeAlsoLinks.title%></a><br />
+    <div class="ingredients">
+        <h4>Ingredients:</h4> 
+        <%let ingredientList = recipes.ingredients%>
+        <%ingredientList.forEach(eachIngredient => {%>
+            <ul>
+                <li>
+                    <%=eachIngredient%>
+                </li>
+            </ul>
         <%})%>
-        <button><a href="<%=recipes.directionsURL%>">Directions</a></button><br />
-        <button><a href="/recipes/<%=recipes.id%>/edit">Edit</a></button>
-        <form action="/recipes/<%=recipes.id%>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete">
-        </form>
-        <button><a href="/recipes">Home</a></button>
     </div>
+
+    <div class="allergens">
+        <h4>Allergens:</h4> 
+        <%let allergenList = recipes.allergensContained%>
+        <%allergenList.forEach(eachAllergen => {%>
+            <ul>
+                <li>
+                    <%=eachAllergen%>
+                </li>
+            </ul>
+        <%})%>
+    </div>
+
+    <%if(recipes.seeAlso.length !== 0) {%>
+        <h4>See Also:</h4> 
+        <%recipes.seeAlso.forEach(seeAlsoLinks => {%>
+            <ul>
+                <li>
+                    <a href="<%=seeAlsoLinks.url%>"><%=seeAlsoLinks.title%></a>
+                </li>
+            </ul>
+        <%})%>
+    <%}%>
+        <div class="links">
+            <button><a href="<%=recipes.directionsURL%>">Directions</a></button><br />
+            <button><a href="/recipes/<%=recipes.id%>/edit">Edit</a></button>
+            <form action="/recipes/<%=recipes.id%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+            <button><a href="/recipes">Home</a></button>
+        </div>
 </body>
 </html>

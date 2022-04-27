@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergen Filter</title>
+</head>
+<body>
+    <h1>Select which you are allergic to:</h1>
+    <form role="search" class="form" action="/recipes/allergenFilterResults" method="POST">
+        <input type="checkbox" id="gluten" name="allergensContained" value="gluten">
+        <label for="gluten">Gluten</label><br>
+        <input type="checkbox" id="dairy" name="allergensContained" value="dairy">
+        <label for="dairy">Dairy</label><br>
+        <input type="checkbox" id="eggs" name="allergensContained" value="eggs">
+        <label for="eggs">Eggs</label><br>
+        <input type="checkbox" id="peanuts" name="allergensContained" value="peanuts">
+        <label for="peanuts">Peanuts</label><br>
+        <input type="checkbox" id="treeNuts" name="allergensContained" value="tree nuts">
+        <label for="treeNuts">Tree Nuts</label><br>
+        <input type="checkbox" id="soy" name="allergensContained" value="soy">
+        <label for="soy">Soy</label><br>
+        <input type="checkbox" id="shellfish" name="allergensContained" value="shellfish">
+        <label for="shellfish">Shellfish</label><br>
+        <input type="checkbox" id="fish" name="allergensContained" value="fish">
+        <label for="fish">Fish</label><br>
+        <input type="checkbox" id="sesame" name="allergensContained" value="sesame">
+        <label for="sesame">Sesame</label><br>
+        <input class="submit" type="submit" />
+    </form>
+    <button><a style="text-decoration:none; color:white;" href="/recipes">Cancel</a></button>
+</body>
+</html>

@@ -56,9 +56,14 @@
         .buttons {
             display: block;
         }
-        .label {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        .label, h3 {
+            font-family: sans-serif;
+            font-size: 18px;
         }
+        .allergenLabel{
+            font-family: sans-serif;
+        }
+
     </style>
 
     <h1>Add a Recipe</h1>
@@ -68,14 +73,32 @@
             <input class="input" type="text" name="title" required />
             <label class="label" for="ingredients">Ingredients* :</label>
             <input class="input" type="text" name="ingredients" required />
-            <label class="label" for="imgURL">Link to Image:</label>
-            <input class="input" type="text" name="imgURL" />
+            <label class="label" for="imageURL">Link to Image:</label>
+            <input class="input" type="text" name="imageURL" />
             <label class="label" for="directionsURL">Link to Directions* :</label>
             <input class="input" type="text" name="directionsURL" required />
-            <label class="label" for="allergens">Allergens* :</label>
-            <input class="input" type="text" name="allergens" required />
-            <p>* Required Field</p>
+            <p class="label">Allergens*:</p>
+            <div class="checkboxes"></div>
+                <input type="checkbox" id="gluten" name="allergensContained" value="gluten">
+                <label class="allergenLabel" for="gluten">Gluten</label><br>
+                <input type="checkbox" id="dairy" name="allergensContained" value="dairy">
+                <label class="allergenLabel" for="dairy">Dairy</label><br>
+                <input type="checkbox" id="eggs" name="allergensContained" value="eggs">
+                <label class="allergenLabel" for="eggs">Eggs</label><br>
+                <input type="checkbox" id="peanuts" name="allergensContained" value="peanuts">
+                <label class="allergenLabel" for="peanuts">Peanuts</label><br>
+                <input type="checkbox" id="treeNuts" name="allergensContained" value="tree nuts">
+                <label class="allergenLabel" for="treeNuts">Tree Nuts</label><br>
+                <input type="checkbox" id="soy" name="allergensContained" value="soy">
+                <label class="allergenLabel" for="soy">Soy</label><br>
+                <input type="checkbox" id="shellfish" name="allergensContained" value="shellfish">
+                <label class="allergenLabel" for="shellfish">Shellfish</label><br>
+                <input type="checkbox" id="fish" name="allergensContained" value="fish">
+                <label class="allergenLabel" for="fish">Fish</label><br>
+                <input type="checkbox" id="sesame" name="allergensContained" value="sesame">
+                <label class="allergenLabel" for="sesame">Sesame</label><br>
         </div>
+        <p>* Required Field</p>
         <div class="buttons">
         <input class="submit" type="submit" />
     </form>

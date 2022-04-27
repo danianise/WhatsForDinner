@@ -36,9 +36,23 @@
         </div>
     </form>
     <script>
-        let searchTerms = ['chicken', 'chicken breast', 'chicken stock'];
-        // let searchTerms = recipes.ingredients
+        let searchTerms = [
+            "baby spinach", "sundried tomatoes in olive oil", "yellow onion",
+            "chicken breast", "garlic cloves", "linguine", "italian seasoning", "salt",
+            "ground black pepper", "crushed red pepper flakes", "chicken stock",
+            "chardonnay", "shredded parmesan", "olive oil", "chili powder", "dried oregano",
+            "tomato paste", "chipotle chiles en adobo", "ground turkey", "mexican lager style beer",
+            "canned whole peeled tomatoes", "canned kidney beans", "italian dressing",
+            "cream cheese", "dried pasta", "ketchup", "apple cider vinegar", "paprika",
+            "garlic powder", "mustard powder", "cumin", "pork shoulder", "potatoes", "mayonnaise",
+            "dill pickle relish", "celery salt", "dijon mustard", "hard-boiled eggs", "celery stalks",
+            "red onion", "smoked paprika", "chicken thighs", "ranch dressing mix", "cheddar cheese",
+            "bacon", "green onions"
+        ];
 
+        //source: https://www.algolia.com/blog/engineering/how-to-implement-autocomplete-with-javascript-on-your-website/
+        //I spoke to Jeremy about this code. I do understand what it is doing,
+        // but he suggested I cite my source since we've not covered RegExp in class
         function autocomplete(input) {
             if (input == '') {
                 return [];
@@ -62,7 +76,7 @@
             result.innerHTML = '<ul>' + list + '</ul>';
         }
     </script>
-    <button><a style="text-decoration:none; color:white;" href="/recipes">Home</a></button>
+    <button><a style="text-decoration:none; color:white;" href="/recipes">Cancel</a></button>
     
 </body>
 </html>
