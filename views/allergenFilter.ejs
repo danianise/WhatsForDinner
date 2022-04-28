@@ -4,31 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
     <title>Allergen Filter</title>
 </head>
 <body>
-    <h1>Select which you are allergic to:</h1>
-    <form role="search" class="form" action="/recipes/allergenFilterResults" method="POST">
-        <input type="checkbox" id="gluten" name="allergensContained" value="gluten">
-        <label for="gluten">Gluten</label><br>
-        <input type="checkbox" id="dairy" name="allergensContained" value="dairy">
-        <label for="dairy">Dairy</label><br>
-        <input type="checkbox" id="eggs" name="allergensContained" value="eggs">
-        <label for="eggs">Eggs</label><br>
-        <input type="checkbox" id="peanuts" name="allergensContained" value="peanuts">
-        <label for="peanuts">Peanuts</label><br>
-        <input type="checkbox" id="treeNuts" name="allergensContained" value="tree nuts">
-        <label for="treeNuts">Tree Nuts</label><br>
-        <input type="checkbox" id="soy" name="allergensContained" value="soy">
-        <label for="soy">Soy</label><br>
-        <input type="checkbox" id="shellfish" name="allergensContained" value="shellfish">
-        <label for="shellfish">Shellfish</label><br>
-        <input type="checkbox" id="fish" name="allergensContained" value="fish">
-        <label for="fish">Fish</label><br>
-        <input type="checkbox" id="sesame" name="allergensContained" value="sesame">
-        <label for="sesame">Sesame</label><br>
-        <input class="submit" type="submit" />
-    </form>
-    <button><a style="text-decoration:none; color:white;" href="/recipes">Cancel</a></button>
-</body>
+    <style>
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fontdiner Swanky', cursive;
+            color: rgb(156, 13, 13);
+            text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px red,
+            0 0 82px red,
+            0 0 92px red,
+            0 0 102px red,
+            0 0 151px red;
+        }
+
+        .content {
+            font-family: sans-serif;
+        }
+        
+        button {
+            margin-top: -70px;
+            margin-left: 70px;
+            z-index: 7;
+        }
+    </style>
+
+    <h1>Allergen Filter</h1>
+    <div class="content">
+        <h3>Select which you are allergic to:</h3>
+        <form role="search" class="form" action="/recipes/allergenFilterResults" method="POST">
+            <input type="checkbox" id="gluten" name="allergensContained" value="gluten">
+            <label for="gluten">Gluten</label><br>
+            <input type="checkbox" id="dairy" name="allergensContained" value="dairy">
+            <label for="dairy">Dairy</label><br>
+            <input type="checkbox" id="eggs" name="allergensContained" value="eggs">
+            <label for="eggs">Eggs</label><br>
+            <input type="checkbox" id="peanuts" name="allergensContained" value="peanuts">
+            <label for="peanuts">Peanuts</label><br>
+            <input type="checkbox" id="treeNuts" name="allergensContained" value="tree nuts">
+            <label for="treeNuts">Tree Nuts</label><br>
+            <input type="checkbox" id="soy" name="allergensContained" value="soy">
+            <label for="soy">Soy</label><br>
+            <input type="checkbox" id="shellfish" name="allergensContained" value="shellfish">
+            <label for="shellfish">Shellfish</label><br>
+            <input type="checkbox" id="fish" name="allergensContained" value="fish">
+            <label for="fish">Fish</label><br>
+            <input type="checkbox" id="sesame" name="allergensContained" value="sesame">
+            <label for="sesame">Sesame</label><br>
+            <input class="submit" type="submit" />
+        </form>
+        <button><a style="text-decoration:none; color:white;" href="/recipes">Cancel</a></button>
+    </div>
+    </body>
 </html>

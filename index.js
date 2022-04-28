@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const methodOverride = require('method-override')
+const ejsLayout =  require("express-ejs-layouts");
 const app = express()
 const recipeControllers = require('./controllers/recipes')
 const Recipe = require('./models/recipe-model')
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(ejsLayout)
 app.use('/recipes', recipeControllers)
 
 const port = process.env.PORT || 4000

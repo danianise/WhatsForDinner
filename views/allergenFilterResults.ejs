@@ -18,6 +18,28 @@
             text-decoration: none;
             color: white;
         }
+
+        .cardsContainer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .recipeCards{
+            text-align: center;
+            margin: 15px;
+        }
+
+        .buttons {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        button {
+            margin: 5px;
+        }
     </style>
     <div class="cardsContainer">
         <%searchResults.forEach(resultRecipe => {%>
@@ -26,6 +48,10 @@
                 <a href="/recipes/<%=resultRecipe.id%>"><img src="<%=resultRecipe.imageURL%>"></a>
             </div>
         <%})%>
+    </div>
+    <div class="buttons">
+        <button><a href="/recipes">Home</a></button>
+        <button><a href="/recipes/allergenFilter">Back</a></button>
     </div>
 </body>
 </html>

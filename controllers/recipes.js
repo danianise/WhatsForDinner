@@ -72,10 +72,8 @@ router.get('/allergenFilterResults', (req, res) => {
 
 //POST route for submitting ALLERGEN FILTER form
 router.post('/allergenFilterResults', (req, res) => {
-  console.log(req.body.allergensContained)
-  let allergens = req.body.allergensContained
-//   Recipe.find({allergensContained: {$not: {$in: [allergens]} } })
-    Recipe.find({allergensContained: {$nin: [allergens]} })
+    let allergens = req.body.allergensContained
+    Recipe.find({allergensContained: {$nin: allergens} })
     .then(searchResults => {
         res.render('allergenFilterResults', {searchResults: searchResults})
     })
