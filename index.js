@@ -20,10 +20,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(ejsLayout)
 app.use('/recipes', recipeControllers)
 
-const port = process.env.PORT || 4000
-// app.set("port", process.env.PORT || 4000)
+// const port = process.env.PORT || 4000
+app.set("port", process.env.PORT || 4000)
 
-app.listen(port, () => {
-    console.log(`Recipe App is running on port ${port}`)
+// app.listen(port, () => {
+//     console.log(`Recipe App is running on port ${port}`)
+// })
+app.listen(app.get("port"), () => {
+    console.log(`Recipe App is running on port ${app.get("port")}`)
 })
 
