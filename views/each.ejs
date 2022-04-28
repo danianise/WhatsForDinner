@@ -1,80 +1,15 @@
 <body>
-    <style>
-        .content{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .titleImage{
-            display: flex;
-            flex-direction: column;
-            font-family: sans-serif;
-            margin-right: 10px;
-            align-items: center;
-        }
-        .ingredientsAllergensSeeAlso {
-            font-family: sans-serif;
-            display: inline-flex;
-            margin-left: 10px;
-            align-items: center;
-        }
-
-        img {
-            height: 50vh;
-            width: 40vw;
-            border-radius: 20px;
-        }
-
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        h1 {
-            text-align: center;
-            font-family: 'Fontdiner Swanky', cursive;
-            color: rgb(156, 13, 13);
-            text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px red,
-            0 0 82px red,
-            0 0 92px red,
-            0 0 102px red,
-            0 0 151px red;
-        }
-
-        .buttons{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-
-        button, form {
-            margin: 5px;
-        }
-
-        li {
-            padding: 0;
-            margin: -10px;
-        }
-    </style>
-
     <h1>What's For Dinner?</h1>
-
-    <div class="content">
-        <div class="titleImage">
-            <h2><%=recipes.title%></h2>
+    <div class="eachContent">
+        <div class="titleAndImage">
+            <h3><%=recipes.title%></h3>
             <a href="<%=recipes.directionsURL%>">
-                <img src="<%=recipes.imageURL%>">
+            <img src="<%=recipes.imageURL%>">
             </a>
         </div>
 
         <div class="ingredientsAllergensSeeAlso">
-            <div class="ingredients">
+            <div class="ingredients"
                 <h4>Ingredients:</h4> 
                 <%let ingredientList = recipes.ingredients%>
                 <%ingredientList.forEach(eachIngredient => {%>
@@ -111,13 +46,14 @@
         </div>
     </div>
 
-    <div class="buttons">
-        <button><a href="<%=recipes.directionsURL%>">Directions</a></button><br />
-        <button><a href="/recipes/<%=recipes.id%>/edit">Edit</a></button>
-        <form action="/recipes/<%=recipes.id%>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete">
-         </form>
-        <button><a href="/recipes">Home</a></button>
+        <div class="buttonsContainer">
+            <button class="button"><a href="<%=recipes.directionsURL%>">Directions</a></button><br />
+            <button class="button"><a href="/recipes/<%=recipes.id%>/edit">Edit</a></button>
+            <form action="/recipes/<%=recipes.id%>?_method=DELETE" method="POST">
+                <input class="button" type="submit" value="Delete">
+            </form>
+            <button class="button"><a href="/recipes">Home</a></button>
+        </div>
     </div>
 </body>
 </html>

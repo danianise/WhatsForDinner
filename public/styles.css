@@ -1,35 +1,14 @@
+/* EVERY PAGE */
 body {
     background: url('https://i.imgur.com/NGSNp47.jpg') no-repeat center center fixed; 
     background-size: cover;
+    color: white;
+    font-family: sans-serif;
 }
 
 a {
     text-decoration: none;
     color: white;
-}
-
-.cardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.cardsContainer img {
-    height: 150px;
-    width: 150px;
-    border-radius: 20px;
-}
-
-.recipeCards {
-    padding: 10px;
-}
-
-.recipeTitle {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: small;
-    max-width: 150px;
-    text-align: center;
 }
 
 h1 {
@@ -66,7 +45,7 @@ h1 {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: silver;
     display: block;
 }
 
@@ -82,6 +61,77 @@ h1 {
     padding: 10% 10% 20%;
     align-items: stretch;
 }
+
+/* INDEX.EJS */
+.cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.cardsContainer img {
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+
+.recipeTitle {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    max-width: 150px;
+    text-align: center;
+}
+
+
+
+/* EACH.EJS */
+.eachContent {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titleAndImage{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.titleAndImage img {
+    height: 50vh;
+    width: 40vw;
+    border-radius: 20px;
+}
+
+.ingredientsAllergensSeeAlso {
+    display: inline-flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.ingredientsAllergensSeeAlso li {
+    padding: 0;
+    margin: -10px;
+}
+
+.button {
+    color: white;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonsContainer button, form {
+    margin: 5px;
+}
   
 @media screen and (max-width: 600px) {
     .sidebar {
@@ -90,6 +140,12 @@ h1 {
     }
     .sidebar a {
         font-size: 12px;
+    }
+
+    .titleAndImage img {
+        height: 20vh;
+        width: 20vw;
+        border-radius: 20px;
     }
 }
 
