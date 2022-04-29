@@ -7,16 +7,62 @@
     <div class="indexMain">  
         <h1>What's for Dinner?</h1>
         <div class="cardsContainer">
-            <%recipes.forEach(indexRecipe => {%>
-                <div class="recipeCards">
-                    <div class="recipeImage">
-                        <a href="/recipes/<%=indexRecipe.id%>"><img src="<%=indexRecipe.imageURL%>"></a>
-                    </div>
-                    <div class="recipeTitle">
-                        <a href="/recipes/<%=indexRecipe.id%>"><h3><%=indexRecipe.title%></h3></a>
-                    </div>
+            <%let length = recipes.length%>
+            <%let indexArray = Array.from({length: length}, (_, index) => index)%>
+            <%console.log(indexArray)%>
+            <%function shuffle(array) {%>
+                <%let arrayLength = array.length;%>
+            
+               <% while (arrayLength > 0) {%>
+                    <%let index = Math.floor(Math.random() * arrayLength);%>
+    
+                    <%arrayLength--;%>
+            
+                    <%let temp = array[arrayLength];%>
+                    <%array[arrayLength] = array[index];%>
+                    <%array[index] = temp;%>
+                <%}%>
+
+                <%return array;%>
+            <%}%>
+            
+            <%console.log(shuffle(indexArray))%>
+
+            <div class="recipeCards">
+                <div class="recipeImage">
+                    <img src="<%=recipes[indexArray[0]].imageURL%>">
                 </div>
-            <%})%>
+                <div class="recipeTitle">
+                    <h3><%=recipes[indexArray[0]].title%></h3>
+                </div>
+            </div>
+
+            <div class="recipeCards">
+                <div class="recipeImage">
+                    <img src="<%=recipes[indexArray[1]].imageURL%>">
+                </div>
+                <div class="recipeTitle">
+                    <h3><%=recipes[indexArray[1]].title%></h3>
+                </div>
+            </div>
+
+            <div class="recipeCards">
+                <div class="recipeImage">
+                    <img src="<%=recipes[indexArray[2]].imageURL%>">
+                </div>
+                <div class="recipeTitle">
+                    <h3><%=recipes[indexArray[2]].title%></h3>
+                </div>
+            </div>
+
+            <div class="recipeCards">
+                <div class="recipeImage">
+                    <img src="<%=recipes[indexArray[3]].imageURL%>">
+                </div>
+                <div class="recipeTitle">
+                    <h3><%=recipes[indexArray[3]].title%></h3>
+                </div>
+            </div>
         </div>
     </div>
 </body>
