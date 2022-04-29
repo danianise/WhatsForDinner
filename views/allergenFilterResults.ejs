@@ -7,7 +7,7 @@
     <title>Search Results</title>
 </head>
 <body>
-    <style>
+    <!-- <style>
         img {
             height: 20vh;
             width: 20vw;
@@ -39,19 +39,25 @@
         }
         button {
             margin: 5px;
-        }
-    </style>
+        } -->
+    <!-- </style> -->
     <div class="cardsContainer">
         <%searchResults.forEach(resultRecipe => {%>
             <div class="recipeCards">
-                <a href="/recipes/<%=resultRecipe.id%>"><h3><%=resultRecipe.title%></h3></a>
-                <a href="/recipes/<%=resultRecipe.id%>"><img src="<%=resultRecipe.imageURL%>"></a>
+                <a href="/recipes/<%=resultRecipe.id%>">
+                    <img src="<%=resultRecipe.imageURL%>">
+                </a>
+            </div>
+            <div class="recipeTitle">
+                <a href="/recipes/<%=resultRecipe.id%>">
+                    <h3><%=resultRecipe.title%></h3>
+                </a>
             </div>
         <%})%>
     </div>
     <div class="buttons">
-        <button><a href="/recipes">Home</a></button>
-        <button><a href="/recipes/allergenFilter">Back</a></button>
+        <button class="button"><a href="/recipes">Home</a></button>
+        <button class="button"><a href="/recipes/allergenFilter">Back</a></button>
     </div>
 </body>
 </html>

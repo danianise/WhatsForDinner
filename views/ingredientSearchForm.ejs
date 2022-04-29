@@ -68,7 +68,7 @@
         <form autocomplete="off" role="search" class="form" action="/recipes/ingredientSearchResults" method="POST">
             <div class="inputField">
                 <label class="label" for="ingredients">Ingredients you want to use:</label>
-                <input class="input" id="test" type="text" name="ingredients" value="" placeholder="Example: chicken breast, yellow onion, baby spinach" onKeyUp="showResults(this.value)" />
+                <input class="input" id="inputField" type="text" name="ingredients" value="" placeholder="Example: chicken breast, yellow onion, baby spinach" onKeyUp="showResults(this.value)" />
                 <div id="result"></div>
                 <input class="button" type="submit" />
             </div>
@@ -96,14 +96,34 @@
         function autocomplete(input) {
             if (input == '') {
                 return [];
+            } else if (input.slice(-2) == ", ") {
+                let fieldValue = document.getElementById('inputField').value
+                let secondTerm = fieldValue.split(', ')
+                console.log(secondTerm[1])
+                let reg = new RegExp(secondTerm)
+                return searchTerms.filter( (term) => {
+                    if (term.match(reg)) {
+                        return term;
+                    }
+                })
+            }  else {
+                let reg = new RegExp(input)
+                return searchTerms.filter( (term) => {
+                    if (term.match(reg)) {
+                    return term;
+                    }
+                });
             }
-            let reg = new RegExp(input)
-            return searchTerms.filter(function(term) {
-                if (term.match(reg)) {
-                return term;
-                }
-            });
         }
+
+        // function secondTerm(input) {
+        //     let fieldValue = document.getElementById('inputField').value
+        //     console.log(fieldValue)
+        //     if (fieldValue.slice(-2) == ", ") {
+        //         let secondTermInput = fieldValue.split(', ')
+        //         autocomplete(secondTermInput)
+        //     }
+        // }
   
         function showResults(value) {
             result = document.getElementById("result");
@@ -114,12 +134,11 @@
                 list += '<li>' + terms[i] + '</li>';
             }
             result.innerHTML = '<ul>' + list + '</ul>';
-            console.log(document.querySelectorAll('li'))
             for (i=0; i<terms.length; i++) {
                 let terms = autocomplete(value)
                 document.querySelectorAll('li')[i].addEventListener('click', (event) => {
-                console.log(event.target.innerText)
-                document.getElementById('test').value = event.target.innerText
+                // console.log(event.target.innerText)
+                document.getElementById('inputField').value = event.target.innerText
 
                 })
             }

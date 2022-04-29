@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
-    <title>Allergen Filter</title>
-</head>
 <body>
-    <style>
-        h1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Fontdiner Swanky', cursive;
-            color: rgb(156, 13, 13);
-            text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px red,
-            0 0 82px red,
-            0 0 92px red,
-            0 0 102px red,
-            0 0 151px red;
-        }
-
-        .content {
-            font-family: sans-serif;
-        }
-        
-        button {
-            margin-top: -70px;
-            margin-left: 70px;
-            z-index: 7;
-        }
-    </style>
-
     <h1>Allergen Filter</h1>
     <div class="content">
         <h3>Select which you are allergic to:</h3>
@@ -61,9 +21,11 @@
             <label for="fish">Fish</label><br>
             <input type="checkbox" id="sesame" name="allergensContained" value="sesame">
             <label for="sesame">Sesame</label><br>
-            <input class="submit" type="submit" />
-        </form>
-        <button><a style="text-decoration:none; color:white;" href="/recipes">Cancel</a></button>
+            <div class="buttons">
+                <input class="submit button" type="submit" />
+            </form>
+            <button class="button"><a class= "cancel" href="/recipes">Cancel</a></button>
+                </div>
     </div>
     </body>
 </html>

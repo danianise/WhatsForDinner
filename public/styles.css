@@ -28,6 +28,21 @@ h1 {
     0 0 151px red;
 }
 
+.cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.cardsContainer img {
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+/* INDEX.EJS */
 .sidebar {
     height: 100%; 
     width: 140px; 
@@ -53,33 +68,8 @@ h1 {
 .sidebar a:hover {
     color: #f1f1f1;
 }
-  
-
-.main {
-    margin-left: 15vw;
-    /* padding: 60px 10px; */
-    padding: 10% 10% 20%;
-    align-items: stretch;
-}
-
-/* INDEX.EJS */
-.cardsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.cardsContainer img {
-    height: 150px;
-    width: 150px;
-    border-radius: 20px;
-    padding: 10px;
-}
-
 
 .recipeTitle {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: small;
     max-width: 150px;
     text-align: center;
@@ -118,6 +108,10 @@ h1 {
     margin: -10px;
 }
 
+.allergensSeeAlso {
+    padding-left:40px;
+}
+
 .button {
     color: white;
     background-color: grey;
@@ -131,6 +125,49 @@ h1 {
 
 .buttonsContainer button, form {
     margin: 5px;
+}
+
+/* ADD.EJS */
+.label, .input {
+    border-radius: 5px;
+    /* border: 1px solid black; */
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    display: grid;
+}
+
+.input {
+    width: 50vw;
+}
+
+#requiredField {
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.cancel {
+    text-decoration: none;
+    padding: 0px 5px 0px 5px;
+    cursor: pointer;
+}
+.submit {
+    margin-right: 10px;
+}
+
+.buttons {
+    display: block;
+}
+.label, h3 {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+.allergenLabel{
+    font-family: sans-serif;
+}
+
+/* ALLERGEN FILTER RESULTS .EJS */
+#allergenCardsContainer {
+    display: flex;
+    flex-direction: column;
 }
   
 @media screen and (max-width: 600px) {
@@ -146,6 +183,24 @@ h1 {
         height: 20vh;
         width: 20vw;
         border-radius: 20px;
+    }
+    .indexMain {
+        margin-left: 15vw;
+        /* padding: 60px 10px; */
+        /* padding: 10% 10% 20%; */
+        align-items: center;
+        justify-content: center;
+        /* align-items: stretch; */
+    }
+    .indexMain h1{
+        font-size: 25px;
+    }
+
+    .cardsContainer{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
     }
 }
 

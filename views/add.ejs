@@ -1,71 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&display=swap" rel="stylesheet">
-    <title>Add a Recipe</title>
-</head>
 <body>
-    <style>
-        .label, .input {
-            border-radius: 5px;
-            /* border: 1px solid black; */
-            margin: 5px 0px 5px 0px;
-            padding: 5px;
-            display: grid;
-        }
-        .input {
-            width: 50vw;
-        }
-        h1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Fontdiner Swanky', cursive;
-            color: rgb(156, 13, 13);
-            text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px red,
-            0 0 82px red,
-            0 0 92px red,
-            0 0 102px red,
-            0 0 151px red;
-        }
-
-        p {
-            font-size: small;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        .cancel {
-            text-decoration: none;
-            color: white;
-            padding: 0px 5px 0px 5px;
-            cursor: pointer;
-        }
-        .submit {
-            margin-right: 10px;
-        }
-
-        .buttons {
-            display: block;
-        }
-        .label, h3 {
-            font-family: sans-serif;
-            font-size: 18px;
-        }
-        .allergenLabel{
-            font-family: sans-serif;
-        }
-
-    </style>
-
     <h1>Add a Recipe</h1>
     <form class="form" action="/recipes/add" method="POST">
         <div class="inputFields">
@@ -98,11 +31,11 @@
                 <input type="checkbox" id="sesame" name="allergensContained" value="sesame">
                 <label class="allergenLabel" for="sesame">Sesame</label><br>
         </div>
-        <p>* Required Field</p>
+        <p id="requiredField">* Required Field</p>
         <div class="buttons">
-        <input class="submit" type="submit" />
+        <input class="submit button" type="submit" />
     </form>
-    <button><a class= "cancel" href="/recipes">Cancel</a></button>
+    <button class="button"><a class= "cancel" href="/recipes">Cancel</a></button>
         </div>
     
 </body>
