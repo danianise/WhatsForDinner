@@ -1,4 +1,5 @@
 require('dotenv').config()
+require('isomorphic-fetch')
 const express = require('express')
 const methodOverride = require('method-override')
 const ejsLayout =  require("express-ejs-layouts");

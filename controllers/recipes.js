@@ -14,6 +14,17 @@ router.get('/', (req, res) => {
         .catch(console.error)
 })
 
+//SURPRISE ME route
+// router.get('/random', (req, res) => {
+//     const url = "https://api.spoonacular.com/recipes/random?apiKey=c399f797a16c4c31a71f133c1b002e3b"
+//     fetch(url)
+//         .then(res => {
+//             return res.json()
+//         })
+//         .then(result => console.log("success!", result))
+//         .catch(console.error)
+// })
+
 //add recipe GET route, shows the FORM TO ADD a recipe
 router.get('/add', (req, res) => {
     res.render('add')

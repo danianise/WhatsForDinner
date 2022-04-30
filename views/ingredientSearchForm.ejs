@@ -66,14 +66,12 @@
     <h1>Search by Ingredients</h1>
     <div class="formAndButton">
         <form autocomplete="off" role="search" class="form" action="/recipes/ingredientSearchResults" method="POST">
-            <div class="inputField">
-                <label class="label" for="ingredients">Ingredients you want to use:</label>
-                <input class="input" id="inputField" type="text" name="ingredients" value="" placeholder="Example: chicken breast, yellow onion, baby spinach" onKeyUp="showResults(this.value)" />
-                <div id="result"></div>
-                <input class="button" type="submit" />
-            </div>
+            <label class="label" for="ingredients">Ingredients you want to use:</label>
+            <input class="input" id="inputField" type="text" name="ingredients" value="" placeholder="Example: chicken breast, yellow onion, baby spinach" onKeyUp="showResults(this.value)" />
+            <div id="result"></div>
+            <input class="button" id="ingredientSearchSubmit" type="submit" />
         </form>
-        <button class="button"><a style="text-decoration:none; color:white;" href="/recipes">Cancel</a></button>
+            <button class="button"><a href="/recipes">Cancel</a></button>
     </div>
     <script>
         let searchTerms = [
