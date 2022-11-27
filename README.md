@@ -17,7 +17,7 @@ My project is a collection of these dinner recipes. The recipes can be filtered 
 ## Links
 [GitHub Repository](https://github.com/danianise/WhatsForDinner)
 
-[Heroku Deployment](https://danianise-whats-for-dinner.herokuapp.com/recipes)
+[Railway Deployment](https://whatsfordinner-production.up.railway.app/recipes)
 ## Screen Captures
 ### Index Page
 <img width="1438" alt="Screen Shot 2022-04-29 at 11 24 52 PM" src="https://user-images.githubusercontent.com/97096664/166089158-2d9bfc66-5159-4fee-b377-a76d23b9ce8d.png">
